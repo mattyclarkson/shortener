@@ -6,6 +6,7 @@ import http from 'http';
 import path from 'path';
 import fetch, {Headers, Request, Response} from './fetch.js';
 import api from '../lib/server/middleware/api.js';
+import Memory from '../lib/server/database/Memory.js';
 
 const pkg = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package.json')));
 const babelrc = JSON.parse(fs.readFileSync(path.join(__dirname, '..', '.babelrc')));
@@ -28,9 +29,13 @@ global.location = {
 
 before(function(done) {
   this.port = port;
-  const middleware = api();
-  this.server = http.createServer(middleware);
-  this.server.listen(this.port, done);
+  const database = new Memory();
+  database.create()
+    .then(() => {
+      const middleware = api(database);
+      this.server = http.createServer(middleware);
+      this.server.listen(this.port, done);
+    });
 });
 
 after(function(done) {

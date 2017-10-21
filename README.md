@@ -4,6 +4,7 @@
 
 [![Travis CI status][travis-badge]][travis]
 [![Appveyor status][appveyor-badge]][appveyor]
+[![Coverage Status][coverage-badge]][coverage]
 
 ## Development
 

@@ -17,4 +17,7 @@ install:
 test_script:
   - yarn ci
 
+on_success:
+  - yarn coverage
+
 build: off

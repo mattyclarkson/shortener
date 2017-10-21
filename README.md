@@ -3,6 +3,7 @@
 > A simple URL shortener web application
 
 [![Travis CI status][travis-badge]][travis]
+[![Appveyor status][appveyor-badge]][appveyor]
 
 ## Development
 

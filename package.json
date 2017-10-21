@@ -18,5 +18,9 @@
   ],
   "author": "Matt Clarkson <mattyclarkson@gmail.com>",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "scripts": {
+    "distclean": "git clean -xfd",
+    "clean": "git clean -xfde node_modules"
+  }
 }

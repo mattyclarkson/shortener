@@ -2,7 +2,14 @@
   "name": "shortner",
   "version": "0.0.0",
   "description": "A simple URL shortner web application",
-  "repository": "git@github.com:mattyclarkson/shortener.git",
+  "bugs": {
+    "url": "https://github.com/mattyclarkson/shortener/issues"
+  },
+  "homepage": "https://github.com/mattyclarkson/shortener#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mattyclarkson/shortener.git"
+  },
   "author": "Matt Clarkson <mattyclarkson@gmail.com>",
   "license": "MIT",
   "private": true

@@ -2,6 +2,8 @@
 
 > A simple URL shortener web application
 
+[![Travis CI status][travis-badge]][travis]
+
 ## Development
 
 Use `yarn` to build and test the project:

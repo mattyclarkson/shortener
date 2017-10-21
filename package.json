@@ -2,6 +2,9 @@
   "name": "shortner",
   "version": "0.0.0",
   "description": "A simple URL shortner web application",
+  "bin": {
+    "shortener": "./dist/bin/shortener.js"
+  },
   "bugs": {
     "url": "https://github.com/mattyclarkson/shortener/issues"
   },
@@ -22,5 +25,9 @@
   "scripts": {
     "distclean": "git clean -xfd",
     "clean": "git clean -xfde node_modules"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1"
   }
 }

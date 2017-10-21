@@ -30,7 +30,13 @@
     "prepare": "yarn rollup",
     "eslint": "eslint bin lib test *.js",
     "mocha": "mocha",
-    "nyc": "nyc mocha"
+    "nyc": "nyc mocha",
+    "lint": "yarn eslint",
+    "build": "yarn rollup",
+    "test": "yarn nyc",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "prepare": "yarn rollup",
+    "ci": "yarn build && yarn lint && yarn test"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",

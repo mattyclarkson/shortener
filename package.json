@@ -10,6 +10,12 @@
     "type": "git",
     "url": "https://github.com/mattyclarkson/shortener.git"
   },
+  "keywords": [
+    "webapp",
+    "shortener",
+    "javascript",
+    "ecmascript"
+  ],
   "author": "Matt Clarkson <mattyclarkson@gmail.com>",
   "license": "MIT",
   "private": true

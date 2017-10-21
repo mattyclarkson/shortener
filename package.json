@@ -29,7 +29,8 @@
     "rollup": "yarn rollup:binary",
     "prepare": "yarn rollup",
     "eslint": "eslint bin lib test *.js",
-    "mocha": "mocha"
+    "mocha": "mocha",
+    "nyc": "nyc mocha"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -39,6 +40,7 @@
     "eslint": "^4.9.0",
     "mocha": "^4.0.1",
     "node-fetch": "^2.0.0-alpha.9",
+    "nyc": "^11.2.1",
     "rollup": "^0.50.0",
     "rollup-plugin-babel": "^3.0.2",
     "whatwg-url": "^6.3.0"

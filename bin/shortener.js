@@ -11,6 +11,10 @@ process.title = pkg.name;
 
 const args = yargs
   .usage(`Usage: ${process.title} [<option>...]`)
+  .number('port')
+  .alias('p', 'port')
+  .default('port', 0)
+  .describe('p', 'The port to serve on.')
   .count('verbose')
   .alias('v', 'verbose')
   .describe('v', 'Log informational messages to stderr; useful for debugging.')
@@ -33,7 +37,9 @@ db.create()
     const api = middleware.api(db);
     app.use('/api', api);
 
-    const server = app.listen(0, () => {logger.info(`Serving files from '${root}' on port '${server.address().port}'`)});
+    const server = app.listen(args.port, () => {
+      logger.info(`Serving files from '${root}' on port '${server.address().port}'`)
+    });
   })
   .catch (err => {
     process.stderr.write(`${err}\n`);

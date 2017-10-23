@@ -1,5 +1,4 @@
 import fs from 'fs';
-import babel from 'rollup-plugin-babel';
 
 function chmod({mode} = {mode: '644'}) {
   return {
@@ -19,18 +18,6 @@ export default {
   },
   plugins: [
     chmod({ mode: '755' }),
-    babel({
-      babelrc: false,
-      exclude: 'node_modules/**',
-      presets: [[
-        'env',
-        {
-          target: { node: 'current' },
-          modules: false
-        }
-      ]],
-      plugins: ['external-helpers']
-    })
   ],
   external: [
     'fs',

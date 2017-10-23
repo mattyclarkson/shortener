@@ -28,7 +28,7 @@
     "rollup:binary": "rollup -c rollup.binary.config.js",
     "rollup": "yarn rollup:binary",
     "prepare": "yarn rollup",
-    "eslint": "eslint bin lib test *.js",
+    "eslint": "eslint bin lib test www/js/*.js *.js",
     "mocha": "mocha",
     "nyc": "nyc mocha",
     "lint": "yarn eslint",

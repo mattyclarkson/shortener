@@ -1,0 +1,55 @@
+<!doctype html>
+
+<html>
+  <head>
+    <title>URL Shortener</title>
+    <meta charset="utf-8">
+    <meta name="description" content="URL shortener">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Web Application Manifest -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Chrome for Android theme color -->
+    <meta name="theme-color" content="#CC0000">
+
+    <!-- Tile color for Win8 -->
+    <meta name="msapplication-TileColor" content="#EEEEEC">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="VCAcore UI">
+    <link rel="icon" sizes="192x192" href="images/icon/background/transparent/192x192.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="VCAcore UI">
+    <link rel="apple-touch-icon" href="images/icon/background/solid/152x152.png">
+
+    <!-- Tile icon for Win8 -->
+    <meta name="msapplication-TileImage" content="images/icon/background/transparent/144x144.png">
+
+    <!-- Modules -->
+    <script async type="module" src="js/shrtnr-ui.js"></script>
+
+    <!-- Fallback -->
+    <script nomodule src="js/nomodule.js"></script>
+
+    <!-- Style -->
+    <style>
+      html, body {
+        height: 100vh;
+      }
+      body {
+        margin: 0;
+      }
+      shrtnr-ui {
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <shrtnr-ui></shrtnr-ui>
+  </body>
+</html>

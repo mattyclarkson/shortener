@@ -1,0 +1,8 @@
+{
+  "license": "MIT",
+  "private": true,
+  "flat": true,
+  "dependencies": {
+    "@polymer/polymer": "^3.0.0-pre.1"
+  }
+}

@@ -23,28 +23,37 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "www": "yarn install --ignore-scripts --cwd www --production",
-    "postinstall": "yarn www",
+    "www:install": "yarn install --ignore-scripts --cwd www --production",
+    "www:rollup": "rollup -c rollup.www.config.js",
+    "www:copy": "copy 'www/!(node_modules)/**/*' 'www/*' dist/www",
+    "www": "yarn www:rollup && yarn www:copy",
+    "postinstall": "yarn www:install",
     "distclean": "git clean -xfd",
     "clean": "git clean -xfde node_modules",
     "rollup:binary": "rollup -c rollup.binary.config.js",
-    "rollup": "yarn rollup:binary",
-    "prepare": "yarn rollup",
+    "rollup:server": "rollup -c rollup.server.config.js",
+    "rollup:www": "yarn www:rollup",
     "eslint": "eslint bin lib test www/js/*.js *.js",
     "mocha": "mocha",
     "nyc": "nyc mocha",
     "lint": "yarn eslint",
-    "build": "yarn rollup",
+    "binary": "yarn rollup:binary",
+    "library": "yarn rollup:server",
+    "build": "yarn binary && yarn library && yarn www",
+    "prepare": "yarn build",
     "test": "yarn nyc",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "prepare": "yarn rollup",
     "ci": "yarn build && yarn lint && yarn test"
+  },
+  "dependencies": {
+    "express": "^4.16.2"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-plugin-external-helpers": "^6.22.0",
     "babel-preset-env": "^1.6.1",
     "chai": "^4.1.2",
+    "copy": "^0.3.1",
     "eslint": "^4.9.0",
     "mocha": "^4.0.1",
     "node-fetch": "^2.0.0-alpha.9",
@@ -52,6 +61,5 @@
     "rollup": "^0.50.0",
     "rollup-plugin-babel": "^3.0.2",
     "whatwg-url": "^6.3.0"
-  },
-  "private": true
+  }
 }

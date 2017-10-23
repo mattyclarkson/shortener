@@ -34,6 +34,8 @@ export default {
   ],
   external: [
     'fs',
-    'path'
+    'tty',
+    'path',
+    'express'
   ]
 };

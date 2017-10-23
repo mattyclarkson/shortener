@@ -1,5 +1,8 @@
 import fs from 'fs';
 import path from 'path';
+import express from 'express';
+import {Logger, level} from '../lib/server.js'
+import Console from './Console.js'
 
 const pkg = JSON.parse(fs.readFileSync(path.join(__dirname, '..', '..', 'package.json'), {encoding: 'utf8'}));
 
@@ -16,6 +19,8 @@ function help(status=0) {
 This starts the backend server for the URL shortener services
 
 Options:
+    --verbose
+        Log informational messages to stderr; useful for debugging.
     --version
         Print version information and exit.
     --help
@@ -25,8 +30,11 @@ Options:
 }
 
 try {
+  const args = {};
+
   const unparsed = process.argv.slice(2).filter(arg => {
     switch (arg) {
+    case '--verbose': args.verbose = true; return false;
     case '--help': help(); return false;
     case '--version': version(); return false;
     default: return true;
@@ -37,7 +45,13 @@ try {
     throw new RangeError(`Unknown arguments: ${unparsed.join(', ')}`);
   }
 
-  process.exit(0);
+  const logger = new Logger({level: args.verbose ? level.INFO : level.WARN, console: new Console()});
+
+  const app = express();
+  const root = path.join(__dirname, '..', 'www');
+  const www = express.static(root);
+  app.use(www);
+  const server = app.listen(0, () => {logger.info(`Serving files from '${root}' on port '${server.address().port}'`)});
 } catch (err) {
   process.stderr.write(`${err}\n`);
   process.exit(1);

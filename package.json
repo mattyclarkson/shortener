@@ -46,7 +46,8 @@
     "ci": "yarn build && yarn lint && yarn test"
   },
   "dependencies": {
-    "express": "^4.16.2"
+    "express": "^4.16.2",
+    "yargs": "^10.0.3"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",

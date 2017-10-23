@@ -36,6 +36,7 @@ export default {
     'fs',
     'tty',
     'path',
+    'yargs',
     'express'
   ]
 };

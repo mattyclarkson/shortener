@@ -12,7 +12,7 @@ import Memory from '../lib/server/database/Memory.js';
 const pkg = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package.json')));
 const babelrc = JSON.parse(fs.readFileSync(path.join(__dirname, '..', '.babelrc')));
 const ignoreRegexp = new RegExp(`node_modules/(?!${Object.keys(pkg.dependencies || {}).join('|')})`);
-const options = Object.assign(babelrc, {ignore: (filename) => filename.match(ignoreRegexp), babelrc: false});
+const options = Object.assign(babelrc, {ignore: filename => filename.match(ignoreRegexp), babelrc: false});
 babelRegister(options);
 
 const port = 58956;

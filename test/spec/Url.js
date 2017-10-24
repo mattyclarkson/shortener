@@ -30,12 +30,12 @@ describe('Url', () => {
 
   describe('clicks', () => {
     it('should reject strings', function() {
-      const thrower = () => {new Url({full, identifier, clicks: 'whut'})}
+      const thrower = () => {new Url({full, identifier, clicks: 'whut'});};
       thrower.should.throw(TypeError, /^The click count must be an Integer: /);
     });
 
     it('should reject floats', function() {
-      const thrower = () => {new Url({full, identifier, clicks: 19.5})}
+      const thrower = () => {new Url({full, identifier, clicks: 19.5});};
       thrower.should.throw(TypeError, /^The click count must be an Integer: /);
     });
   });
@@ -49,7 +49,7 @@ describe('Url', () => {
     });
 
     it('reject invalid URLs', function() {
-      const thrower = () => {new Url({full: 'Wubba Lubba Dub Dub', identifier, clicks})}
+      const thrower = () => {new Url({full: 'Wubba Lubba Dub Dub', identifier, clicks});};
       thrower.should.throw(TypeError, /^Invalid URL: /);
     });
   });

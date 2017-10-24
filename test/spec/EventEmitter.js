@@ -11,17 +11,18 @@ describe('EventEmitter', () => {
   });
 
   it('should warn on too many bindings', function() {
-    const name = 'test'
+    const name = 'test';
     for (let i = 0; i <= this.maxListeners; ++i) {
       const callback = () => {};
       this.emitter.on(name, callback);
     }
-    this.console.buffer.should.equal(`warn: Max listeners (${this.maxListeners}) for event '${name}' have been reached`);
+    this.console.buffer.should.equal(
+      `warn: Max listeners (${this.maxListeners}) for event '${name}' have been reached`);
   });
 
   it('should warn on multiple bindings', function() {
     const callback = () => {};
-    const name = 'test'
+    const name = 'test';
     this.emitter.on(name, callback);
     this.emitter.on(name, callback);
     this.console.buffer.should.equal(`warn: Event '${name}' already has the callback registered`);
@@ -35,7 +36,7 @@ describe('EventEmitter', () => {
   it('should respond to emitted events with an argument', function() {
     const expected = 80085;
     const promise = new Promise(resolve => {
-      this.emitter.on('test', (value) => resolve(value));
+      this.emitter.on('test', value => resolve(value));
     });
     this.emitter.emit('test', expected);
     return promise.then(result => result.should.equal(expected));
@@ -58,7 +59,7 @@ describe('EventEmitter', () => {
     const promise = new Promise(resolve => {
       this.emitter.on('finish', resolve);
     });
-    const callback = (value) => result += value;
+    const callback = value => result += value;
     this.emitter.on('test', callback);
     this.emitter.emit('test', 10);
     this.emitter.emit('test', 10);
@@ -74,7 +75,7 @@ describe('EventEmitter', () => {
     const promise = new Promise(resolve => {
       this.emitter.on('finish', resolve);
     });
-    const callback = (value) => result += value;
+    const callback = value => result += value;
     this.emitter.once('test', callback);
     this.emitter.emit('test', 10);
     this.emitter.emit('test', 10);

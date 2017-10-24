@@ -8,5 +8,72 @@
   "parserOptions": {
     "sourceType": "module",
     "ecmaVersion": 2017
+  },
+  "rules": {
+    "quotes": [
+      "error",
+      "single"
+    ],
+    "indent": [
+      "error",
+      2
+    ],
+    "semi": [
+      "error",
+      "always"
+    ],
+    "quote-props": [
+      "off"
+    ],
+    "sort-keys": [
+      "off"
+    ],
+    "max-len": [
+      "error",
+      120
+    ],
+    "one-var": [
+      "off"
+    ],
+    "padded-blocks": [
+      "error",
+      "never"
+    ],
+    "space-before-function-paren": [
+      "error",
+      "never"
+    ],
+    "dot-location": [
+      "error",
+      "property"
+    ],
+    "no-magic-numbers": [
+      "off"
+    ],
+    "sort-imports": [
+      "off"
+    ],
+    "arrow-parens": [
+      "error",
+      "as-needed"
+    ],
+    "class-methods-use-this": [
+      "off"
+    ],
+    "no-plusplus": [
+      "off"
+    ],
+    "array-element-newline": [
+      "error",
+      {
+        "multiline": true
+      }
+    ],
+    "no-param-reassign": [
+      "off"
+    ],
+    "consistent-this": [
+      "off"
+    ]
   }
 }

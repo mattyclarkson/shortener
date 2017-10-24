@@ -20,12 +20,6 @@ export default {
     chmod({ mode: '755' }),
   ],
   external: [
-    'fs',
-    'url',
-    'tty',
-    'path',
-    'yargs',
-    'accepts',
-    'express'
+    'fs', 'url', 'tty', 'path', 'yargs', 'accepts', 'express'
   ]
 };

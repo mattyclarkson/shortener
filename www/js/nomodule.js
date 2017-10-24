@@ -2,8 +2,8 @@
   'use strict';
 
   const fallback = () => {
-    const title = `Need ECMAscript module loading support`;
-    const href = `https://browsehappy.com/`;
+    const title = 'Need ECMAscript module loading support';
+    const href = 'https://browsehappy.com/';
     document.body.innerHTML = `
       <section id="module-loading-warning">
         <p>Please <a title="${title}" href=${href}>upgrade</a> your browser</p>

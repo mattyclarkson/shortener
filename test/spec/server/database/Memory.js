@@ -70,7 +70,7 @@ describe('server', () => {
       describe('insert', () => {
         it('validates the URL', function() {
           const thrower = () => {
-            this.db.insert('jungle inferno update')
+            this.db.insert('jungle inferno update');
           };
           thrower.should.throw(TypeError, /^Invalid URL: /);
         });
@@ -90,7 +90,7 @@ describe('server', () => {
         it('insert', function() {
           const promise = new Promise(resolve => {
             this.db.on('insert', () => resolve());
-          })
+          });
           return this.db.insert('https://www.teamfortress.com').then(() => promise);
         });
 
@@ -98,7 +98,7 @@ describe('server', () => {
           const promise = new Promise(resolve => {
             this.db.on('delete', () => resolve());
           });
-          const {identifier} = await this.db.insert('https://www.teamfortress.com')
+          const {identifier} = await this.db.insert('https://www.teamfortress.com');
           await this.db.delete(identifier);
           return promise;
         });

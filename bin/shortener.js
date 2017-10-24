@@ -41,7 +41,7 @@ db.create()
     app.use('/api', api);
 
     const server = app.listen(args.port, () => {
-      logger.info(`Serving files from '${root}' on port '${server.address().port}'`)
+      logger.info(`Serving files from '${root}' on port '${server.address().port}'`);
     });
   })
   .catch (err => {

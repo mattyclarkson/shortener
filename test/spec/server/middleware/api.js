@@ -50,7 +50,7 @@ describe('server', () => {
         });
 
         it('can retrieve the list of shortened URLs', () => {
-          return fetch(``).then(response => response.should.be.a('array').that.have.lengthOf(1));
+          return fetch('').then(response => response.should.be.a('array').that.have.lengthOf(1));
         });
 
         it('can retrieve the inserted identifier', async function() {

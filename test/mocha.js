@@ -4,8 +4,8 @@ import babelRegister from 'babel-register';
 import fs from 'fs';
 import http from 'http';
 import path from 'path';
-import fetch, {Headers, Request, Response} from './fetch.js';
-import {setUrl} from '../lib/compatibility.js';
+import fetch, {Headers, Request, Response} from 'node-fetch';
+import {setUrl, setFetch} from '../lib/compatibility.js';
 import api from '../lib/server/middleware/api.js';
 import Memory from '../lib/server/database/Memory.js';
 
@@ -18,13 +18,10 @@ babelRegister(options);
 const port = 58956;
 
 setUrl(URL);
+setFetch(fetch, Headers, Request, Response);
 
 global.chai = chai;
 global.should = chai.should();
-global.fetch = fetch;
-global.Headers = Headers;
-global.Request = Request;
-global.Response = Response;
 global.location = {
   origin: `http://localhost:${port}`
 };

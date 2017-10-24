@@ -1,3 +1,5 @@
+import fetch from '../../../fetch.js';
+
 describe('server', () => {
   describe('middleware', () => {
     describe('api', () => {

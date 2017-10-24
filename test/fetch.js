@@ -1,4 +1,4 @@
-import fetch, {Headers, Request, Response} from 'node-fetch';
+import {fetch, Headers, Request, Response} from '../lib/compatibility.js';
 import FetchError from '../lib/FetchError.js';
 
 export {Headers, Request, Response};

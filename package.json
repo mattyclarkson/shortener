@@ -26,7 +26,7 @@
     "www:install": "yarn install --ignore-scripts --cwd www --production  --modules-folder www/js/external",
     "www:rollup": "rollup -c rollup.www.config.js",
     "www:copy": "copy 'www/!(js)/!(external)/**/*' 'www/*/*/*' 'www/*/*' 'www/*' dist/www",
-    "www": "yarn www:rollup && yarn www:copy",
+    "www": "yarn www:copy && yarn www:rollup",
     "postinstall": "yarn www:install",
     "distclean": "git clean -xfd",
     "clean": "git clean -xfde node_modules",

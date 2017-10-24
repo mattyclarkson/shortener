@@ -66,5 +66,8 @@
     "rollup": "^0.50.0",
     "rollup-plugin-babel": "^3.0.2",
     "whatwg-url": "^6.3.0"
+  },
+  "optionalDependencies": {
+    "mysql": "^2.15.0"
   }
 }

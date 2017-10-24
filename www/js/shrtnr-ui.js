@@ -4,6 +4,8 @@ import './external/@polymer/polymer/lib/elements/dom-repeat.js';
 
 import Api from '../../lib/client/Api.js';
 
+import './shrtnr-entry.js';
+
 export class ShrtnrUi extends GestureEventListeners(Element) {
   static get properties() {
     return {
@@ -29,18 +31,25 @@ export class ShrtnrUi extends GestureEventListeners(Element) {
         </section>
         <section id="entries">
           <template is="dom-repeat" items="[[entries]]">
-            <dl>
-              <dt>{{item.full}}</dt>
-              <dd>The full URL of the entry</dd>
-              <dt>{{item.clicks}}</dt>
-              <dd>The number of clicks the URL has received</dd>
-              <dt>{{item.identifier}}</dt>
-              <dd>The shortened identifier for the URL</dd>
-            </dl>
+            <shrtnr-entry
+              full="{{item.full}}"
+              clicks="{{item.clicks}}"
+              identifier="{{item.identifier}}"
+              on-delete="_onDelete">
+            </shrtnr-entry>
           </template>
         </section>
       </article>
     `;
+  }
+
+  async connectedCallback() {
+    super.connectedCallback()
+    const array = await this.api.query();
+    for (const entry of array) {
+      this.push('entries', entry);
+    }
+    console.log(this.entries);
   }
 
   _onInput() {
@@ -61,7 +70,12 @@ export class ShrtnrUi extends GestureEventListeners(Element) {
       this.$.url.value = '';
     }
   }
-}
 
+  async _onDelete(e, detail) {
+    const deleted = await this.api.delete(detail);
+    const index = this.entries.findIndex(entry => entry.identifier.id === deleted.identifier.id);
+    this.splice('entries', index, 1);
+  }
+}
 
 customElements.define('shrtnr-ui', ShrtnrUi);

@@ -32,22 +32,12 @@ describe('server', () => {
 
       describe('GET', () => {
         beforeEach(async function() {
-          try {
-            const data = 'https://developer.mozilla.org/';
-            const entry = await this.send('', data, {method: 'POST'});
-            const deleted = await this.send('', entry.identifier, {method: 'DELETE'});
-            entry.should.deep.equal(deleted);
-            this.entry = await this.send('', data, {method: 'POST'});
-          } catch (err) {
-            this.skip();
-          }
+          const data = 'https://developer.mozilla.org/';
+          this.entry = await this.send('', data, {method: 'POST'});
         });
 
-        afterEach(async function() {
-          const {entry} = this;
-          if (entry) {
-            return await this.send('', entry.identifier, {method: 'DELETE'});
-          }
+        afterEach(function() {
+          return this.send('', this.entry.identifier, {method: 'DELETE'});
         });
 
         it('rejects an invalid accept header', async function() {

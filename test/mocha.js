@@ -26,17 +26,32 @@ global.location = {
   origin: `http://localhost:${port}`
 };
 
-before(function(done) {
+before(async function() {
   this.port = port;
   const database = new Memory();
-  database.create()
-    .then(() => {
-      const middleware = api(database);
-      this.server = http.createServer(middleware);
-      this.server.listen(this.port, done);
+  await database.create()
+  const middleware = api(database);
+  this.server = http.createServer(middleware);
+
+  return new Promise((resolve, reject) => {
+    this.server.listen(this.port, err => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve();
+      }
     });
+  });
 });
 
-after(function(done) {
-  this.server.close(done);
+after(async function() {
+  return new Promise((resolve, reject) => {
+    this.server.close(err => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve();
+      }
+    });
+  });
 });

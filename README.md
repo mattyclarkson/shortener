@@ -6,6 +6,15 @@
 [![Appveyor status][appveyor-badge]][appveyor]
 [![Coverage Status][coverage-badge]][coverage]
 
+## Running
+
+Run the `yarn` installation and then serve the application:
+
+```
+yarn
+yarn serve -p 8080
+```
+
 ## Development
 
 Use `yarn` to build and test the project:
@@ -15,7 +24,6 @@ yarn install
 yarn lint
 yarn build
 yarn test
-yarn serve -p 8080
 ```
 
 ## Icon

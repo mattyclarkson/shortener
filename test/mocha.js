@@ -8,6 +8,7 @@ import fetch, {Headers, Request, Response} from 'node-fetch';
 import {setUrl, setFetch} from '../lib/compatibility.js';
 import api from '../lib/server/middleware/api.js';
 import Memory from '../lib/server/database/Memory.js';
+import {Docker} from 'node-docker-api';
 
 const pkg = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package.json')));
 const babelrc = JSON.parse(fs.readFileSync(path.join(__dirname, '..', '.babelrc')));
@@ -27,6 +28,17 @@ global.location = {
 };
 
 before(async function() {
+  try {
+    const docker = new Docker();
+    this.container = await docker.container.create({
+      image: 'mysql:8',
+      env: ['MYSQL_ROOT_PASSWORD=shrtnr'],
+      ports: ['5000:3306']
+    });
+  } catch (err) {
+    process.stderr.write(`\x1b[33mFailed to start Docker MySQL container: ${err.json.message}\x1b[0m\n\n`);
+  }
+
   this.port = port;
   const database = new Memory();
   await database.create()
@@ -45,6 +57,10 @@ before(async function() {
 });
 
 after(async function() {
+  if (this.container) {
+    await this.container.stop();
+    await this.container.delete({force: true});
+  }
   return new Promise((resolve, reject) => {
     this.server.close(err => {
       if (err) {

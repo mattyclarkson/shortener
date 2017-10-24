@@ -15,6 +15,7 @@ yarn install
 yarn lint
 yarn build
 yarn test
+yarn serve -p 8080
 ```
 
 ## Icon

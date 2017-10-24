@@ -43,7 +43,8 @@
     "prepare": "yarn build",
     "test": "yarn nyc",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "ci": "yarn build && yarn lint && yarn test"
+    "ci": "yarn build && yarn lint && yarn test",
+    "serve": "./dist/bin/shortener.js -vv"
   },
   "dependencies": {
     "express": "^4.16.2",

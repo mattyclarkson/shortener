@@ -4,6 +4,9 @@ import yargs from 'yargs';
 import express from 'express';
 import {Logger, database, middleware} from '../lib/server.js';
 import Console from './Console.js';
+import {URL} from 'url';
+import {setUrl} from '../lib/compatibility.js';
+setUrl(URL);
 
 const pkg = JSON.parse(fs.readFileSync(path.join(__dirname, '..', '..', 'package.json'), {encoding: 'utf8'}));
 

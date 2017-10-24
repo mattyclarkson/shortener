@@ -5,6 +5,7 @@ import fs from 'fs';
 import http from 'http';
 import path from 'path';
 import fetch, {Headers, Request, Response} from './fetch.js';
+import {setUrl} from '../lib/compatibility.js';
 import api from '../lib/server/middleware/api.js';
 import Memory from '../lib/server/database/Memory.js';
 
@@ -16,9 +17,10 @@ babelRegister(options);
 
 const port = 58956;
 
+setUrl(URL);
+
 global.chai = chai;
 global.should = chai.should();
-global.URL = URL;
 global.fetch = fetch;
 global.Headers = Headers;
 global.Request = Request;

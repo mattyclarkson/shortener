@@ -21,6 +21,7 @@ export default {
   ],
   external: [
     'fs',
+    'url',
     'tty',
     'path',
     'yargs',

@@ -1,5 +1,6 @@
 import Identifier from '../../lib/Identifier.js';
 import Url from '../../lib/Url.js';
+import {URL} from '../../lib/compatibility.js';
 
 const full = new URL('https://en.wikipedia.org/wiki/Half-Life_(video_game)');
 const identifier = new Identifier(1337);

@@ -1,5 +1,7 @@
 # shortener
 
+![Shortener Logo][logo]
+
 > A simple URL shortener web application
 
 [![Travis CI status][travis-badge]][travis]
@@ -30,6 +32,7 @@ yarn test
 
 Icon made by [Freepik][freepik] from [www.flaticon.com][flaticon] and is licensed by [CC 3.0 BY][cc-3-0-BY]
 
+[logo]: www/images/icon/background/transparent/144x144.png "Logo"
 [travis]: https://travis-ci.org/mattyclarkson/shortener "TravisCI"
 [travis-badge]: https://travis-ci.org/mattyclarkson/shortener.svg?branch=master "TravisCI"
 [appveyor]: https://ci.appveyor.com/project/mattyclarkson/shortener/branch/master "Appveyor"

@@ -1,4 +1,4 @@
-import {Element} from '../node_modules/@polymer/polymer/polymer-element.js';
+import {Element} from './external/@polymer/polymer/polymer-element.js';
 
 export class ShrtnrUi extends Element {
   static get template() {

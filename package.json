@@ -23,9 +23,9 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "www:install": "yarn install --ignore-scripts --cwd www --production",
+    "www:install": "yarn install --ignore-scripts --cwd www --production  --modules-folder www/js/external",
     "www:rollup": "rollup -c rollup.www.config.js",
-    "www:copy": "copy 'www/!(node_modules)/**/*' 'www/*' dist/www",
+    "www:copy": "copy 'www/!(js)/!(external)/**/*' 'www/*/*/*' 'www/*/*' 'www/*' dist/www",
     "www": "yarn www:rollup && yarn www:copy",
     "postinstall": "yarn www:install",
     "distclean": "git clean -xfd",

@@ -3,5 +3,8 @@ export default {
   output: {
     file: 'dist/lib/server.js',
     format: 'cjs'
-  }
+  },
+  external: [
+    'accepts'
+  ]
 };

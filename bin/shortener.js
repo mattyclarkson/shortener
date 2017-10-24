@@ -37,6 +37,9 @@ app.use(www);
 const db = new database.Memory();
 db.create()
   .then(() => {
+    const redirect = middleware.redirect(db);
+    app.use('/', redirect);
+
     const api = middleware.api(db);
     app.use('/api', api);
 
